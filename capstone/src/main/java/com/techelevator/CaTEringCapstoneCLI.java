@@ -20,9 +20,6 @@ public class CaTEringCapstoneCLI {
 
 	public void run() {
 		while (true) {
-
-
-			//  to do -- build out main menu
 		}
 	}
 }

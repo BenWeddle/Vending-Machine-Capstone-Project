@@ -3,10 +3,11 @@ package com.techelevator.view;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class UserInput {private static Scanner scanner = new Scanner(System.in);
+public class UserInput extends Menu {
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void getHomeScreenOption() {
-        System.out.println("What would you like to do?");
+//        System.out.println("What would you like to do?");
 
         System.out.println("D. Display catering items");
         System.out.println("P. Purchase");
@@ -18,16 +19,16 @@ public class UserInput {private static Scanner scanner = new Scanner(System.in);
         String selectedOption = scanner.nextLine();
         String option = selectedOption.trim().toUpperCase();
 
-        switch (option) {
-            case "D":
-                return "list";
-            case "P":
-                return "Purchase";
-            case "E":
-                return "Exit";
-            default:
-                return "";
-        }
+//        switch (option) {
+//            case "D":
+//
+//            case "P":
+//                return "Purchase";
+//            case "E":
+//                return "Exit";
+//            default:
+//                return "";
+//        }
     }
     public static String purchaseMenu(){
         System.out.println("M. Feed money");

@@ -8,6 +8,7 @@ public class Item {
     private int quantityInStock;
 
 
+    public Item(){}
 
     public Item(String iD, String name, String type, double price, int quantityInStock) {
         this.name = name;

@@ -1,8 +1,15 @@
 package com.techelevator.view;
 
-public class Transaction extends Item {
+public class Transaction{
+    private double balance = 0.00;
 
-    public Transaction(String iD, String name, String type, double price, int quantityInStock) {
-        super(iD, name, type, price, quantityInStock);
+    public Transaction(){}
+
+    public void addToBalance(int feed) {
+        balance += feed;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }

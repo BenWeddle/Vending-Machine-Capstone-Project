@@ -17,7 +17,7 @@ public class Menu {
                 inventory.add(new Item(thisLineAsArray[0], thisLineAsArray[1], thisLineAsArray[2], Double.parseDouble(thisLineAsArray[3]), 7));
             }
         } catch (IOException exception) {
-            System.out.println("Cannot restock mackine");
+            System.out.println("Cannot restock machine");
         }
     }
 

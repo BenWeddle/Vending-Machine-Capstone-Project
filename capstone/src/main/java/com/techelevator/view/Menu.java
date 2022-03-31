@@ -1,11 +1,13 @@
 package com.techelevator.view;
 
+import com.techelevator.CaTEringCapstoneCLI;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Menu {
+public class Menu extends CaTEringCapstoneCLI {
     private List<Item> inventory = new ArrayList<>();
 
 

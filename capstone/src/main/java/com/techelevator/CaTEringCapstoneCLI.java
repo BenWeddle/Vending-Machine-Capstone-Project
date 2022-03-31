@@ -9,8 +9,15 @@ public class CaTEringCapstoneCLI {
 
 	private Menu menu;
 
+	public Menu getMenu() {
+		return menu;
+	}
+
 	public CaTEringCapstoneCLI(Menu menu) {
 		this.menu = menu;
+	}
+
+	public CaTEringCapstoneCLI() {
 	}
 
 	public static void main(String[] args) {

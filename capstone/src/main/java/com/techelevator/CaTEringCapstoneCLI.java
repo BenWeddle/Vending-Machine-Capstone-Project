@@ -6,14 +6,11 @@ import com.techelevator.view.UserInput;
 public class CaTEringCapstoneCLI {
 
 	private Menu menu;
-<<<<<<< HEAD
-=======
 
 	public Menu getMenu() {
 		return menu;
 	}
 
->>>>>>> bd06a63b801d746ed6b744df1431f72ac546100b
 	public CaTEringCapstoneCLI(Menu menu) {
 		this.menu = menu;
 	}

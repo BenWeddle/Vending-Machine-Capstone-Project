@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class Transaction{
-    private double balance = 0.00;
+    private static double balance = 0.00;
 
 
 //    public Transaction(InputStream input, OutputStream output){
@@ -12,11 +12,11 @@ public class Transaction{
 
 
 
-    public void addToBalance(int feed) {
+    public static void addToBalance(double feed) {
         balance += feed;
     }
 
-    public double getBalance() {
+    public static double getBalance() {
         return balance;
     }
 }

@@ -10,9 +10,10 @@ public class UserInput extends Menu {
     private static Transaction thisCustomer = new Transaction();
 
     public static boolean getHomeScreenOption(Menu menu) {
-        System.out.println("D. Display catering items");
-        System.out.println("P. Purchase");
-        System.out.println("E. Exit menu");
+
+        System.out.println("(D) Display catering items");
+        System.out.println("(P) Purchase");
+        System.out.println("(E) Exit menu");
 
 
         System.out.println("\nPlease select an option: ");
@@ -27,7 +28,7 @@ public class UserInput extends Menu {
                 System.out.println("******************************");
                 return true;
             case "P":
-                purchaseMenu();
+                purchaseMenu(menu);
                 return true;
             case "E":
                 return false;
@@ -36,10 +37,10 @@ public class UserInput extends Menu {
         }
     }
 
-    public static boolean purchaseMenu(){
-        System.out.println("M. Feed money");
-        System.out.println("S. Select item");
-        System.out.println("F. Finish transaction");
+    public static void purchaseMenu(Menu menu){
+        System.out.println("(M) Feed money");
+        System.out.println("(S) Select item");
+        System.out.println("(F) Finish transaction");
 
         System.out.println("\nYour current balance is: " + thisCustomer.getBalance());
 
@@ -50,20 +51,10 @@ public class UserInput extends Menu {
             case "M":
                 System.out.println("Please enter a whole dollar amount: ");
 
-                if (Integer.parseInt(scanner.nextLine()) < 1) {
-                    System.out.println("Please enter a whole dollar amount.");
-                } else {
-                    thisCustomer.addToBalance(Integer.parseInt(scanner.nextLine()));
-                }
-                getHomeScreenOption()
-
-                return true;
+                thisCustomer.addToBalance(Integer.parseInt(scanner.nextLine()));
             case "S":
-                return true;
             case "F":
-                return false;
             default:
-                return true;
         }
 
     }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class UserInput extends Menu {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void getHomeScreenOption() {
+    public static void getHomeScreenOption(Menu menu) {
 //        System.out.println("What would you like to do?");
 
         System.out.println("D. Display catering items");
@@ -19,16 +19,16 @@ public class UserInput extends Menu {
         String selectedOption = scanner.nextLine();
         String option = selectedOption.trim().toUpperCase();
 
-//        switch (option) {
-//            case "D":
-//
-//            case "P":
-//                return "Purchase";
-//            case "E":
-//                return "Exit";
-//            default:
-//                return "";
-//        }
+        switch (option) {
+            case "D":
+                menu.getInventory();
+            case "P":
+
+            case "E":
+
+            default:
+
+        }
     }
     public static String purchaseMenu(){
         System.out.println("M. Feed money");

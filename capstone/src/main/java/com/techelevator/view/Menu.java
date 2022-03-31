@@ -10,12 +10,14 @@ public class Menu {
 
 
     public Menu() {
-        Scanner scanner = new Scanner("catering.csv");
-
-        while (scanner.hasNextLine()) {
-            String itemLine = scanner.nextLine();
-            String[] thisLineAsArray = itemLine.split(",");
-            inventory.add(new Item(thisLineAsArray[0], thisLineAsArray[1], thisLineAsArray[2], Double.parseDouble(thisLineAsArray[3]), 7));
+        try (Scanner scanner = new Scanner(new File("catering.csv"))) {
+            while (scanner.hasNextLine()) {
+                String itemLine = scanner.nextLine();
+                String[] thisLineAsArray = itemLine.split(",");
+                inventory.add(new Item(thisLineAsArray[0], thisLineAsArray[1], thisLineAsArray[2], Double.parseDouble(thisLineAsArray[3]), 7));
+            }
+        } catch (IOException exception) {
+            System.out.println("Cannot restock mackine");
         }
     }
 

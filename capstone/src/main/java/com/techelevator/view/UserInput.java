@@ -1,5 +1,7 @@
 package com.techelevator.view;
 
+import com.techelevator.CaTEringCapstoneCLI;
+
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -53,6 +55,8 @@ public class UserInput extends Menu {
                 } else {
                     thisCustomer.addToBalance(Integer.parseInt(scanner.nextLine()));
                 }
+                getHomeScreenOption()
+
                 return true;
             case "S":
                 return true;

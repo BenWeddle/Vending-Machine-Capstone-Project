@@ -19,7 +19,7 @@ public class Transaction{
         if (price <= balance) {
             balance -= price;
         } else {
-            System.out.println("Insufficient funds.");
+            System.out.println("Insufficient funds.\n");
         }
     }
 

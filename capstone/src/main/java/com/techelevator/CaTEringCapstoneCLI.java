@@ -25,8 +25,8 @@ public class CaTEringCapstoneCLI {
 	}
 
 	public void run(Menu menu) {
-		while (true) {
-			UserInput.getHomeScreenOption(menu);
+		while (UserInput.getHomeScreenOption(menu)) {
+			continue;
 		}
 	}
 }

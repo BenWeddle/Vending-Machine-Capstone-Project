@@ -28,12 +28,16 @@ public class Menu extends CaTEringCapstoneCLI {
             System.out.println(item.getWholeName());
         }
     }
-    public void getItemInInventory(String input){
+    public Item getItemInInventory(String input){
         for (Item item : inventory){
            if (input.equals(item.getID())) {
                if (item.getQuantityInStock() > 0){
                    System.out.println();
+               } else {
+                   System.out.println("NO LONGER AVAILABLE");
                }
+           } else {
+               System.out.println("Sorry, that input is invalid.");
            }
         }
     }

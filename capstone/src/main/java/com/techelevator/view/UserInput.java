@@ -28,9 +28,10 @@ public class UserInput extends Menu {
                 System.out.println("\n******************************");
                 return true;
             case "P":
-                while (true){
-                    purchaseMenu(menu);
+                while (purchaseMenu(menu)){
+                    continue;
                 }
+                return true;
             case "E":
                 return false;
             default:
@@ -57,11 +58,14 @@ public class UserInput extends Menu {
                 menu.printInventory();
                 System.out.println("\nPlease select an item: \n");
                 String selectedItem = scanner.nextLine();
-                menu.removeFromInventory(selectedItem);
-                thisCustomer.getRemainingAfterPurchase(menu.getItem(selectedItem).getPrice());
-                menu.getItem(selectedItem).getCatchPhrase(menu.getItem(selectedItem).getType());
+                if (menu.)
+//                menu.removeFromInventory(selectedItem);
+//                thisCustomer.getRemainingAfterPurchase(menu.getItem(selectedItem).getPrice());
+//                menu.getItem(selectedItem).getCatchPhrase(menu.getItem(selectedItem).getType());
                 return true;
             case "F":
+                //get change method
+
                 return false;
             default:
                 return true;

@@ -23,9 +23,9 @@ public class UserInput extends Menu {
 
         switch (option) {
             case "D":
-                System.out.println("******************************");
+                System.out.println("******************************\n");
                 menu.getInventory();
-                System.out.println("******************************");
+                System.out.println("\n******************************");
                 return true;
             case "P":
                 purchaseMenu(menu);
@@ -50,7 +50,6 @@ public class UserInput extends Menu {
         switch (option) {
             case "M":
                 System.out.println("Please enter a whole dollar amount: ");
-
                 thisCustomer.addToBalance(Integer.parseInt(scanner.nextLine()));
             case "S":
                 menu.printInventory();

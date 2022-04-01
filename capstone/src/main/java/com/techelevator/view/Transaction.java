@@ -7,9 +7,6 @@ public class Transaction{
     private static double balance = 0.00;
 
 
-/
-
-
     public static void addToBalance(double feed) {
         balance += feed;
     }
@@ -18,9 +15,12 @@ public class Transaction{
         return balance;
     }
 
-    public double getRemainingAfterPrice(double price){
-        balance -= price;
-
+    public void getRemainingAfterPurchase(double price){
+        if (price <= balance) {
+            balance -= price;
+        } else {
+            System.out.println("Insufficient funds.");
+        }
     }
 
 }

@@ -31,22 +31,30 @@ public class Item {
         return price;
     }
 
-    public String getiD() {
+    public String getID() {
         return iD;
     }
 
     public String getType() {
         return type;
     }
-    public String getCatchPhrase(String userInput){
-        if (userInput.equals("Munchy")){
+    public String getCatchPhrase(String userInput) {
+        if (userInput.equals("Munchy")) {
             return "Munchy, Munchy, so Good!";
-        } else if (userInput.equals("Sandwich")){
+        } else if (userInput.equals("Sandwich")) {
             return "Sandwich So Delicious, Yum!";
-        }else if (userInput.equals("Drink")){
+        } else if (userInput.equals("Drink")) {
             return "Drinky, Drinky, Slurp Slurp!";
-        }else if (userInput.equals("Dessert"))
+        } else if (userInput.equals("Dessert")){
             return "Sugar, Sugar, so Sweet!";
+        } else {
+            return "Yummy mystery snack?";
+        }
+    }
+
+    public void dispenseItem() {
+        quantityInStock--;
+    }
 
     public int getQuantityInStock() {
         return quantityInStock;

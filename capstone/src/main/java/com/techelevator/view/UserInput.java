@@ -24,12 +24,13 @@ public class UserInput extends Menu {
         switch (option) {
             case "D":
                 System.out.println("******************************\n");
-                menu.getInventory();
+                menu.printInventory();
                 System.out.println("\n******************************");
                 return true;
             case "P":
-                purchaseMenu(menu);
-                return true;
+                while (true){
+                    purchaseMenu(menu);
+                }
             case "E":
                 return false;
             default:
@@ -37,7 +38,7 @@ public class UserInput extends Menu {
         }
     }
 
-    public static void purchaseMenu(Menu menu){
+    public static boolean purchaseMenu(Menu menu){
         System.out.println("(M) Feed money");
         System.out.println("(S) Select item");
         System.out.println("(F) Finish transaction");
@@ -51,11 +52,19 @@ public class UserInput extends Menu {
             case "M":
                 System.out.println("Please enter a whole dollar amount: ");
                 thisCustomer.addToBalance(Integer.parseInt(scanner.nextLine()));
+                return true;
             case "S":
                 menu.printInventory();
-                if (scanner.nextLine().toUpperCase();
+                System.out.println("\nPlease select an item: \n");
+                String selectedItem = scanner.nextLine();
+                menu.removeFromInventory(selectedItem);
+                thisCustomer.getRemainingAfterPurchase(menu.getItem(selectedItem).getPrice());
+                menu.getItem(selectedItem).getCatchPhrase(menu.getItem(selectedItem).getType());
+                return true;
             case "F":
+                return false;
             default:
+                return true;
         }
 
     }

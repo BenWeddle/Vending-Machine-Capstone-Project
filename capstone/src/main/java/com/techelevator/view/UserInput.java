@@ -53,6 +53,8 @@ public class UserInput extends Menu {
 
                 thisCustomer.addToBalance(Integer.parseInt(scanner.nextLine()));
             case "S":
+                menu.printInventory();
+                if (scanner.nextLine().toUpperCase();
             case "F":
             default:
         }

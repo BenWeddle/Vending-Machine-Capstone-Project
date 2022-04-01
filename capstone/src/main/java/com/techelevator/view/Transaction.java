@@ -7,9 +7,7 @@ public class Transaction{
     private static double balance = 0.00;
 
 
-//    public Transaction(InputStream input, OutputStream output){
-//        this.out =
-
+/
 
 
     public static void addToBalance(double feed) {
@@ -19,4 +17,10 @@ public class Transaction{
     public static double getBalance() {
         return balance;
     }
+
+    public double getRemainingAfterPrice(double price){
+        balance -= price;
+
+    }
+
 }

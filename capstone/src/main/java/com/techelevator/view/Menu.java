@@ -23,9 +23,25 @@ public class Menu extends CaTEringCapstoneCLI {
         }
     }
 
-    public void getInventory() {
+    public void printInventory() {
         for (Item item : inventory) {
             System.out.println(item.getWholeName());
         }
     }
+    public void getInventory(String input){
+        for (Item item : inventory){
+           if (input.equals(item.getiD())) {
+               if (item.getQuantityInStock() > 0){
+                   System.out.println();
+               }
+           }
+        }
+
+    }
+    public double removeFromInventory(String getId){
+        for (Item item : inventory){
+            item.getiD()
+        }
+    }
+
 }

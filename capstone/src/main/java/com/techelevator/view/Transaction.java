@@ -2,22 +2,29 @@ package com.techelevator.view;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.math.BigDecimal;
 
 public class Transaction{
-    private static double balance = 0.00;
+    private static BigDecimal balance = new BigDecimal("0.00");
 
 
-    public static void addToBalance(double feed) {
-        balance += feed;
+    public void addToBalance(String feed) {
+        if (feed.contains(".")) {
+            System.out.println("Please enter a whole dollar amount, no change.\n");
+        } else if (feed.matches("\\d+")) {
+            balance = balance.add(new BigDecimal(Integer.parseInt(feed)));
+        } else {
+            System.out.println("Please enter valid number.\n");
+        }
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void getRemainingAfterPurchase(double price){
-        if (price <= balance) {
-            balance -= price;
+    public void makePurchase(double price){
+        if (balance.compareTo(new BigDecimal(price)) > 0) {
+            balance = balance.add(new BigDecimal(price));
         } else {
             System.out.println("Insufficient funds.\n");
         }

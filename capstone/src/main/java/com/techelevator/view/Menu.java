@@ -4,6 +4,7 @@ import com.techelevator.CaTEringCapstoneCLI;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,6 +29,7 @@ public class Menu extends CaTEringCapstoneCLI {
             System.out.println(item.getWholeName());
         }
     }
+
     public Item getItemInInventory(String input){
 
         for (Item item : inventory){
@@ -35,18 +37,19 @@ public class Menu extends CaTEringCapstoneCLI {
                 if (item.getQuantityInStock() > 0){
                     return item;
                 } else {
-                    System.out.println("NO LONGER AVAILABLE");
+                    System.out.println("NO LONGER AVAILABLE (out of stock) ");
                 }
-            } else {
-                System.out.println("Sorry, that input is invalid.");
             }
         }
+        System.out.println("Sorry, that input is invalid.");
 
         return null;
     }
+
     public List<Item> getInventory(){
         return inventory;
     }
+
     public boolean removeFromInventory(String getId){
         for (Item item : inventory){
             if (item.getID().equalsIgnoreCase(getId) && item.getQuantityInStock() > 0) {

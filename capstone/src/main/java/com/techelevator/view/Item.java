@@ -53,7 +53,9 @@ public class Item {
     }
 
     public void dispenseItem() {
-        quantityInStock--;
+        if (quantityInStock > 0) {
+            quantityInStock--;
+        }
     }
 
     public int getQuantityInStock() {

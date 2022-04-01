@@ -29,32 +29,32 @@ public class Menu extends CaTEringCapstoneCLI {
         }
     }
     public Item getItemInInventory(String input){
+
         for (Item item : inventory){
-           if (input.equals(item.getID())) {
-               if (item.getQuantityInStock() > 0){
-                   System.out.println();
-               } else {
-                   System.out.println("NO LONGER AVAILABLE");
-               }
-           } else {
-               System.out.println("Sorry, that input is invalid.");
-           }
-        }
-    }
-    public Item getItem(String id){
-        for (Item item : inventory) {
-            if(item.getID().equalsIgnoreCase(id)){
-                return item;
+            if (input.equals(item.getID())) {
+                if (item.getQuantityInStock() > 0){
+                    return item;
+                } else {
+                    System.out.println("NO LONGER AVAILABLE");
+                }
+            } else {
+                System.out.println("Sorry, that input is invalid.");
             }
         }
+
         return null;
     }
-    public void removeFromInventory(String getId){
+    public List<Item> getInventory(){
+        return inventory;
+    }
+    public boolean removeFromInventory(String getId){
         for (Item item : inventory){
-            if (item.getID().equalsIgnoreCase(getId)) {
+            if (item.getID().equalsIgnoreCase(getId) && item.getQuantityInStock() > 0) {
                 item.dispenseItem();
+                return true;
             }
         }
+        return false;
     }
 
 }

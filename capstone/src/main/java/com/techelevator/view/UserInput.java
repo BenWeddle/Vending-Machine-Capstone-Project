@@ -57,11 +57,19 @@ public class UserInput extends Menu {
             case "S":
                 menu.printInventory();
                 System.out.println("\nPlease select an item: \n");
-                String selectedItem = scanner.nextLine();
-                if (menu.)
-//                menu.removeFromInventory(selectedItem);
-//                thisCustomer.getRemainingAfterPurchase(menu.getItem(selectedItem).getPrice());
-//                menu.getItem(selectedItem).getCatchPhrase(menu.getItem(selectedItem).getType());
+                String selectedItem = scanner.nextLine().toUpperCase();
+
+                if (thisCustomer.getBalance() > menu.getItemInInventory(selectedItem).getPrice()) {
+                    if (menu.getItemInInventory(selectedItem).getQuantityInStock() > 0){
+                        menu.removeFromInventory(selectedItem);
+                        thisCustomer.getRemainingAfterPurchase(menu.getItemInInventory(selectedItem).getPrice());
+                        menu.getItemInInventory(selectedItem).getCatchPhrase(menu.getItemInInventory(selectedItem).getType());
+                    } else {
+                        System.out.println("NO LONGER AVAILABLE");
+                    }
+                } else {
+                    System.out.println("Insufficient funds.");
+                }
                 return true;
             case "F":
                 //get change method

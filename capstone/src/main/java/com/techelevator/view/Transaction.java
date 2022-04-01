@@ -11,7 +11,7 @@ public class Transaction{
         balance += feed;
     }
 
-    public static double getBalance() {
+    public double getBalance() {
         return balance;
     }
 

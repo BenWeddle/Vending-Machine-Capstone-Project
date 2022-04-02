@@ -59,8 +59,18 @@ public class UserInput extends Menu {
                 String selectedItem = scanner.nextLine().toUpperCase();
                 Item checkItem = menu.getItemInInventory(selectedItem);
                 if (!(checkItem == null)) {
+<<<<<<< HEAD
 
                 }
+=======
+                   if (thisCustomer.makePurchase(checkItem.getPrice())){
+                       checkItem.dispenseItem();
+                       checkItem.getCatchPhrase(checkItem.getType());
+                   }
+                     }
+                    return true;
+
+>>>>>>> c8827a10236ca61ebfe0a8f14d82c410ba7c0293
 //                    if (thisCustomer.getBalance() > menu.getItemInInventory(selectedItem).getPrice()) {
 //                    if (menu.getItemInInventory(selectedItem).getQuantityInStock() > 0){
 //                        menu.removeFromInventory(selectedItem);
@@ -75,7 +85,7 @@ public class UserInput extends Menu {
 //                return true;
             case "F":
                 //get change method
-
+                thisCustomer.getChange();
                 return false;
             default:
                 return true;

@@ -59,7 +59,7 @@ public class UserInput extends Menu {
                 String selectedItem = scanner.nextLine().toUpperCase();
                 Item checkItem = menu.getItemInInventory(selectedItem);
                 if (!(checkItem == null)) {
-                    
+
                 }
 //                    if (thisCustomer.getBalance() > menu.getItemInInventory(selectedItem).getPrice()) {
 //                    if (menu.getItemInInventory(selectedItem).getQuantityInStock() > 0){

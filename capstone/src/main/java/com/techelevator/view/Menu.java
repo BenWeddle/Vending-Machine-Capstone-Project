@@ -3,6 +3,7 @@ package com.techelevator.view;
 import com.techelevator.CaTEringCapstoneCLI;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,11 +14,12 @@ public class Menu extends CaTEringCapstoneCLI {
 
 
     public Menu() {
-        try (Scanner scanner = new Scanner(new File("catering.csv"))) {
+        try (Scanner scanner = new Scanner(new File("catering1.csv"))) {
             while (scanner.hasNextLine()) {
                 String itemLine = scanner.nextLine();
                 String[] thisLineAsArray = itemLine.split(",");
                 inventory.add(new Item(thisLineAsArray[0], thisLineAsArray[1], thisLineAsArray[2], Double.parseDouble(thisLineAsArray[3]), 7));
+
             }
         } catch (IOException exception) {
             System.out.println("Cannot restock machine");
@@ -31,18 +33,21 @@ public class Menu extends CaTEringCapstoneCLI {
     }
 
     public Item getItemInInventory(String input){
-
+        boolean inputItemExists = false;
         for (Item item : inventory){
             if (input.equals(item.getID())) {
+                inputItemExists = true;
                 if (item.getQuantityInStock() > 0){
                     return item;
                 } else {
-                    System.out.println("NO LONGER AVAILABLE (out of stock) ");
+                    System.out.println("\nNO LONGER AVAILABLE (out of stock) \n");
+                    break;
                 }
             }
         }
-        System.out.println("Sorry, that input is invalid.");
-
+        if (inputItemExists == false) {
+            System.out.println("\nSorry, that input is invalid.\n");
+        }
         return null;
     }
 

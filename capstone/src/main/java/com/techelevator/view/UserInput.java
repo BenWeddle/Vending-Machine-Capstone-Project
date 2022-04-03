@@ -49,8 +49,9 @@ public class UserInput extends Menu {
         switch (option) {
             case "M":
                 System.out.println("Please enter a whole dollar amount: ");
-
-                thisCustomer.addToBalance(scanner.nextLine());
+                String feedAmount = scanner.nextLine();
+                thisCustomer.addToBalance(feedAmount);
+                thisCustomer.auditCustomerFeed(feedAmount);
 
                 return true;
             case "S":
@@ -63,6 +64,7 @@ public class UserInput extends Menu {
                     if (thisCustomer.makePurchase(checkItem.getPrice())){
                         checkItem.dispenseItem();
                         checkItem.getCatchPhrase(checkItem.getType());
+                        thisCustomer.auditCustomerPurchase(checkItem);
                         System.out.println();
                     }
                 }

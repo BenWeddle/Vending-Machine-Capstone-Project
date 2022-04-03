@@ -161,7 +161,7 @@ public class Transaction{
         if (dataFile.exists()) {
             try (PrintWriter dataOutput = new PrintWriter(new FileOutputStream(dataFile, true))) {
 
-                dataOutput.printf("\n%-25s%-24s%7s%7s", dateTime, giveChange, changeAmount, zeroBalance);
+                dataOutput.printf("\n%-25s%-24s%7s%7s\n", dateTime, giveChange, changeAmount, zeroBalance);
 
             } catch (FileNotFoundException exception) {
 

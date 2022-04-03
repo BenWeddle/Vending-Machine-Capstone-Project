@@ -50,8 +50,9 @@ public class UserInput extends Menu {
             case "M":
                 System.out.println("Please enter a whole dollar amount: ");
                 String feedAmount = scanner.nextLine();
-                thisCustomer.addToBalance(feedAmount);
                 thisCustomer.auditCustomerFeed(feedAmount);
+                thisCustomer.addToBalance(feedAmount);
+
 
                 return true;
             case "S":
@@ -82,7 +83,7 @@ public class UserInput extends Menu {
 //                }
 //                return true;
             case "F":
-                //get change method
+                thisCustomer.auditCustomerChange();
                 thisCustomer.getChange();
                 return false;
             default:

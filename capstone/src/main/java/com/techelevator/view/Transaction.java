@@ -4,6 +4,7 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Transaction{
@@ -100,12 +101,21 @@ public class Transaction{
                 + nickelCount + " Nickel(s), and " + pennyCount + " Pennie(s)" );
     }
 
+    //%-25s%-20s%7.2f
+
     public void auditCustomerPurchase(Item item) {
         File dataFile = new File("Audit.txt");
+        String dateTime = ">" + LocalDateTime.now().withNano(0).toString();
+        String balanceAsString = "$" + balance.toString();
+        String priceAsString = "$" + String.valueOf(item.getPrice());
+        String itemId = item.getID();
+
         if (dataFile.exists()) {
             try (PrintWriter dataOutput = new PrintWriter(new FileOutputStream(dataFile, true))) {
-                dataOutput.printf("%-22s%-22s%-22s\n",">", LocalDateTime.now(), item.getName() +
-                        " " + item.getID(), "$" + balance.add(new BigDecimal(item.getPrice())) + " $" + balance);
+//                dataOutput.printf(">" + LocalDateTime.now().withNano(0) + " " + item.getName() +
+//                        " " + item.getID() + " $" + balance.add(new BigDecimal(item.getPrice())).setScale(2, RoundingMode.HALF_UP) + " $" + balance);
+                dataOutput.printf("\n%-25s%-20s%-4s%7s%7s", dateTime, item.getName(), itemId, priceAsString, balanceAsString);
+
             } catch (FileNotFoundException exception) {
 
             }
@@ -119,10 +129,40 @@ public class Transaction{
     }
     public void auditCustomerFeed(String feedAmount) {
         int feedAmountAsInt = Integer.parseInt(feedAmount);
+        String afterBalance = "$" + balance.add(new BigDecimal(feedAmountAsInt)).setScale(2, RoundingMode.HALF_UP).toString();
+        String balanceAsString = "$" + balance.toString();
+        String moneyFed = "MONEY FED: ";
+        String dateTime = ">" + LocalDateTime.now().withNano(0).toString();
+
         File dataFile = new File("Audit.txt");
         if (dataFile.exists()) {
             try (PrintWriter dataOutput = new PrintWriter(new FileOutputStream(dataFile, true))) {
-                dataOutput.printf("%22s%-22s%-22s\n",">", LocalDateTime.now(), "$" + feedAmountAsInt + " $" + balance);
+
+                dataOutput.printf("\n%-25s%-24s%7s%7s", dateTime, moneyFed, balanceAsString, afterBalance);
+
+            } catch (FileNotFoundException exception) {
+
+            }
+        } else {
+            try {
+                dataFile.createNewFile();
+            } catch (IOException exception) {
+                exception.getMessage();
+            }
+        }
+    }
+    public void auditCustomerChange() {
+        String giveChange = "CHANGE GIVEN: ";
+        String changeAmount = "$" + balance.toString();
+        String zeroBalance = "$0.00";
+        String dateTime = ">" + LocalDateTime.now().withNano(0).toString();
+
+        File dataFile = new File("Audit.txt");
+        if (dataFile.exists()) {
+            try (PrintWriter dataOutput = new PrintWriter(new FileOutputStream(dataFile, true))) {
+
+                dataOutput.printf("\n%-25s%-24s%7s%7s", dateTime, giveChange, changeAmount, zeroBalance);
+
             } catch (FileNotFoundException exception) {
 
             }

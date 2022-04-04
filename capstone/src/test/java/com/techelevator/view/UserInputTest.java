@@ -1,17 +1,15 @@
 package com.techelevator.view;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.junit.Assert.*;
 
-public class MenuTest {
+public class UserInputTest {
 
     @Before
     public void setUp() throws Exception {
-
     }
 
     @After
@@ -20,10 +18,10 @@ public class MenuTest {
 
 
     @Test
-    public void prints_inventory_when_selected() {
-
-
+    public void test_if_f_finishes_transaction() {
+        String expected = "(F) Finish transaction";
+        String actual = "(F) Finish transaction";
+        assertEquals(expected, actual);
     }
-
 
 }

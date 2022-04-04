@@ -38,18 +38,24 @@ public class Item {
     public String getType() {
         return type;
     }
-    public void getCatchPhrase(String userInput) {
+    public String  getCatchPhrase(String userInput) {
         if (userInput.equals("Munchy")) {
+            userInput = "Munchy, Munchy, so Good!";
             System.out.println("Munchy, Munchy, so Good!");
         } else if (userInput.equals("Sandwich")) {
+            userInput = "Sandwich So Delicious, Yum!";
             System.out.println("Sandwich So Delicious, Yum!");
         } else if (userInput.equals("Drink")) {
+            userInput = "Drinky, Drinky, Slurp Slurp!";
             System.out.println("Drinky, Drinky, Slurp Slurp!");
-        } else if (userInput.equals("Dessert")){
+        } else if (userInput.equals("Dessert")) {
+            userInput = "Sugar, Sugar, so Sweet!";
             System.out.println("Sugar, Sugar, so Sweet!");
         } else {
             System.out.println("Yummy mystery snack?");
         }
+
+        return userInput;
     }
 
     public void dispenseItem() {
